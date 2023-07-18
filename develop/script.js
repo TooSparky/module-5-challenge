@@ -1,19 +1,20 @@
 // Global Variables
-nineAm = $('#hour-9');
-tenAm = $('#hour-10');
-elevenAm = $('#hour-11');
-noon = $('#hour-12');
-onePm = $('#hour-1');
-twoPm = $('#hour-2');
-threePm = $('#hour-3');
-fourPm = $('#hour-4');
-fivePm = $('#hour-5');
-textEl = $('#text');
-saveButton = $('.saveBtn');
-currentDate = $('#currentDay');
+var nineAm = $('#hour-9');
+var tenAm = $('#hour-10');
+var elevenAm = $('#hour-11');
+var noon = $('#hour-12');
+var onePm = $('#hour-1');
+var twoPm = $('#hour-2');
+var threePm = $('#hour-3');
+var fourPm = $('#hour-4');
+var fivePm = $('#hour-5');
+var textEl = $('#text');
+var saveButton = $('.saveBtn');
+var currentDate = $('#currentDay');
 
-// Set up later with dayjs
-currentHour = dayjs();
+// Dayjs variables
+var now = dayjs();
+var currentHour = now.hour();
 
 // Wrap all code that interacts with the DOM in a call to jQuery
 $(function () {
@@ -26,141 +27,174 @@ $(function () {
   });
 
   // Sets the current date in the header
-  $(currentDate).text(currentHour.format('MMM DD YYYY HH:MM:s a'));
+  $(currentDate).text(now.format('MMM DD YYYY'));
 
   // Loads the timeBlocks function on page load
   $(timeBlocks).ready();
 
   // Should set up all the colors based on time of day
   function timeBlocks() {
+    
     // If Else statements from 9am - 5pm
-    console.log('in timeblocks test');
-    if (nineAm > currentHour) {
-      //future
-      nineAm.addClass('future');
-      if (nineAm === currentHour) {
-        //present
-        nineAm.addClass('present');
-      }
-      else {
-        //past
-        nineAm.addClass('past');
-      }
-    }
-    else if (tenAm > currentHour) {
+    if (10 > currentHour) {
+      //present
+      nineAm.addClass('present');
+
       //future
       tenAm.addClass('future');
-      if (tenAm === currentHour) {
-        //present
-        tenAm.addClass('present');
-      }
-      else {
-        //past
-        tenAm.addClass('past');
-      }
+      elevenAm.addClass('future');
+      noon.addClass('future');
+      onePm.addClass('future');
+      twoPm.addClass('future');
+      threePm.addClass('future');
+      fourPm.addClass('future');
+      fivePm.addClass('future');
     }
-    else if (elevenAm > currentHour) {
+    else if (11 > currentHour) {
+      //present
+      tenAm.addClass('present');
+
+      //past
+      nineAm.addClass('past');
+
       //future
       elevenAm.addClass('future');
-      if (elevenAm === currentHour) {
-        //present
-        elevenAm.addClass('present');
-      }
-      else {
-        //past
-        elevenAm.addClass('past');
-      }
+      noon.addClass('future');
+      onePm.addClass('future');
+      twoPm.addClass('future');
+      threePm.addClass('future');
+      fourPm.addClass('future');
+      fivePm.addClass('future');
     }
-    else if (noon > currentHour) {
+    else if (12 > currentHour) {
+      //present
+      elevenAm.addClass('present');
+
+      //past
+      nineAm.addClass('past');
+      tenAm.addClass('past');
+
       //future
       noon.addClass('future');
-      if (elevenAm === currentHour) {
-        //present
-        noon.addClass('present');
-      }
-      else {
-        //past
-        noon.addClass('past');
-      }
+      onePm.addClass('future');
+      twoPm.addClass('future');
+      threePm.addClass('future');
+      fourPm.addClass('future');
+      fivePm.addClass('future');
     }
-    else if (onePm > currentHour) {
+    else if (13 > currentHour) {
+      //present
+      noon.addClass('present');
+
+      //past
+      nineAm.addClass('past');
+      tenAm.addClass('past');
+      elevenAm.addClass('past');
+
       //future
       onePm.addClass('future');
-      if (elevenAm === currentHour) {
-        //present
-        onePm.addClass('present');
-      }
-      else {
-        //past
-        onePm.addClass('past');
-      }
+      twoPm.addClass('future');
+      threePm.addClass('future');
+      fourPm.addClass('future');
+      fivePm.addClass('future');
     }
-    else if (twoPm > currentHour) {
+    else if (14 > currentHour) {
+      //present
+      onePm.addClass('present');
+
+      //past
+      nineAm.addClass('past');
+      tenAm.addClass('past');
+      elevenAm.addClass('past');
+      noon.addClass('past');
+
       //future
       twoPm.addClass('future');
-      if (elevenAm === currentHour) {
-        //present
-        twoPm.addClass('present');
-      }
-      else {
-        //past
-        twoPm.addClass('past');
-      }
+      threePm.addClass('future');
+      fourPm.addClass('future');
+      fivePm.addClass('future');
     }
-    else if (threePm > currentHour) {
+    else if (15 > currentHour) {
+      //present
+      twoPm.addClass('present');
+
+      //past
+      nineAm.addClass('past');
+      tenAm.addClass('past');
+      elevenAm.addClass('past');
+      noon.addClass('past');
+      onePm.addClass('past');
+
       //future
       threePm.addClass('future');
-      if (elevenAm === currentHour) {
-        //present
-        threePm.addClass('present');
-      }
-      else {
-        //past
-        threePm.addClass('past');
-      }
+      fourPm.addClass('future');
+      fivePm.addClass('future');
     }
-    else if (fourPm > currentHour) {
+    else if (16 > currentHour) {
+      //present
+      threePm.addClass('present');
+
+      //past
+      nineAm.addClass('past');
+      tenAm.addClass('past');
+      elevenAm.addClass('past');
+      noon.addClass('past');
+      onePm.addClass('past');
+      twoPm.addClass('past');
+
       //future
       fourPm.addClass('future');
-      if (elevenAm === currentHour) {
-        //present
-        fourPm.addClass('present');
-      }
-      else {
-        //past
-        fourPm.addClass('past');
-      }
+      fivePm.addClass('future');
     }
-    else if (fivePm > currentHour) {
+    else if (17 > currentHour) {
+      //present
+      fourPm.addClass('present');
+
+      //past
+      nineAm.addClass('past');
+      tenAm.addClass('past');
+      elevenAm.addClass('past');
+      noon.addClass('past');
+      onePm.addClass('past');
+      twoPm.addClass('past');
+      threePm.addClass('past');
+
       //future
       fivePm.addClass('future');
-      if (elevenAm === currentHour) {
-        //present
-        fivePm.addClass('present');
-      }
-      else {
-        //past
-        fivePm.addClass('past');
-      }
+    }
+    else if (18 > currentHour) {
+      //present
+      fivePm.addClass('present');
+
+      //past
+      nineAm.addClass('past');
+      tenAm.addClass('past');
+      elevenAm.addClass('past');
+      noon.addClass('past');
+      onePm.addClass('past');
+      twoPm.addClass('past');
+      threePm.addClass('past');
+      fourPm.addClass('past');
     }
   }
+
+  // WANT TO RETURN STRING, NOT OBJECT, SO NO json STRINGIFY / PARSE
 
   // Saves the user text in local storage
   function saveText() {
-    localStorage.setItem("textEl", JSON.stringify(textEl));
+    var timeBlock = $(this).parent().attr('id');
+    localStorage.setItem(timeBlock, JSON.stringify(textEl));
+
     renderMessage();
   }
 
-  // Renders the saved messages
+  // Renders the message saved from local storage
   function renderMessage() {
-    var nineAmSavedMessage = JSON.parse(localStorage.getItem('textEl'));
-    if (nineAmSavedMessage !== null) {
-      textEl.text(nineAmSavedMessage);
+    var savedMessage = localStorage.getItem('textEl');
+    if (savedMessage !== null) {
+      textEl.text(savedMessage);
     }
   }
-
-  // HINT: How can the id attribute of each time-block be used to do this?
-
 });
 
   // This code should
@@ -169,27 +203,13 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
+
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.\
 
-
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-// WHEN I scroll down
-// THEN I am presented with timeblocks for standard business hours of 9am&ndash;5pm
-// WHEN I view the timeblocks for that day
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 // WHEN I click into a timeblock
 // THEN I can enter an event
 // WHEN I click the save button for that timeblock
