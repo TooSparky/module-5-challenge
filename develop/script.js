@@ -190,7 +190,8 @@ $(function () {
 
   // Renders the message saved from local storage
   function renderMessage() {
-    var savedMessage = localStorage.getItem('textEl');
+    var savedMessage = localStorage.getItem(timeBlock, textEl);
+    console.log(savedMessage);
     if (savedMessage !== null) {
       textEl.text(savedMessage);
     }
@@ -207,8 +208,6 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.\
 
 // WHEN I click into a timeblock
 // THEN I can enter an event
