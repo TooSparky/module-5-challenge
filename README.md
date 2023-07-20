@@ -8,7 +8,7 @@ The application is designed to be a work day planner. The user can enter what th
 
 To install, go to the deployed application link below.
 
-
+https://toosparky.github.io/module-5-challenge/
 
 ## Usage
 
