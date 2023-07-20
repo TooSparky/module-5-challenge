@@ -6,7 +6,9 @@ The application is designed to be a work day planner. The user can enter what th
 
 ## Installation
 
-To install, simply go to the deployed application link.
+To install, go to the deployed application link below.
+
+
 
 ## Usage
 
